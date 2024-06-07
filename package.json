@@ -1,0 +1,18 @@
+{
+  "name": "project-starter-ts",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "api",
+    "frontend",
+    "website",
+    "docs"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "Starter template to scaffold a project with typescript, api (Express + Postgres), frontend (Vite), website (Astro) and documentation (Astro). "
+}

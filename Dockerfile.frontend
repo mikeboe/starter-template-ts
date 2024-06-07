@@ -1,0 +1,30 @@
+# Step 1: Build the application
+FROM --platform=linux/amd64 node:20-alpine AS builder
+# ARG BUILD_CONTEXT
+
+WORKDIR /base
+COPY package.json .
+COPY package-lock.json .
+COPY ./frontend/package.json frontend/package.json
+RUN mkdir frontend/nginx
+RUN npm ci
+COPY ./frontend frontend
+RUN ls -a
+RUN npx pkg ./node_modules/@import-meta-env/cli/bin/import-meta-env.js \
+    -t node18-alpine-x64 \
+    -o frontend/import-meta-env-alpine
+RUN npm run build --workspace=frontend
+
+# Step 2: Set up the production environment
+FROM nginx:stable-alpine
+# ARG BUILD_CONTEXT
+RUN mkdir /app
+
+COPY --from=builder /base/frontend/dist /app/build
+COPY --from=builder /base/frontend/import-meta-env-alpine /app/
+COPY ./misc/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./misc/start.sh /app/
+
+COPY frontend/.env.example /app/
+EXPOSE 80
+ENTRYPOINT ["sh","/app/start.sh"]
