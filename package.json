@@ -1,6 +1,6 @@
 {
   "name": "project-starter-ts",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "type": "module",
   "workspaces": [
     "api",
