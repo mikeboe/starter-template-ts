@@ -12,4 +12,4 @@ RUN npm run build --workspace=api
 
 EXPOSE 3000
 
-CMD ["node", "api/dist/app.js"]
+ENTRYPOINT ["sh","api/start.sh"]

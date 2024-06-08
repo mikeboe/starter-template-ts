@@ -1,0 +1,13 @@
+  website:
+    image: website
+    platform: linux/amd64
+    container_name: website
+    build:
+      context: .
+      dockerfile: Dockerfile.website
+    restart: always
+    ports:
+      - "8082:80"
+    environment:
+      - APP_URL=http://frontend:8080
+      - DOCS_URL=http://docs:8081

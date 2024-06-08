@@ -5,7 +5,9 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon src/app.ts",
+    "migration:generate": "drizzle-kit generate",
+    "migration:push": "node drizzle/migrate.ts"
   },
   "keywords": [],
   "author": "",

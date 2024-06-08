@@ -1,0 +1,10 @@
+  docs:
+    image: docs
+    platform: linux/amd64
+    container_name: docs
+    build:
+      context: .
+      dockerfile: Dockerfile.docs
+    restart: always
+    ports:
+      - "8081:80"

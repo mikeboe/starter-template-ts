@@ -1,0 +1,13 @@
+  frontend:
+    image: frontend
+    platform: linux/amd64
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      VITE_API_URL: http://api:3000
+      NODE_ENV: development

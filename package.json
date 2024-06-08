@@ -1,7 +1,7 @@
 {
   "name": "project-starter-ts",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.15",
+  "type": "module",
   "workspaces": [
     "api",
     "frontend",
@@ -11,8 +11,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "project-starter-ts": "cli/index.mjs"
+  },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "description": "Starter template to scaffold a project with typescript, api (Express + Postgres), frontend (Vite), website (Astro) and documentation (Astro). "
+  "description": "Starter template to scaffold a project with typescript, api (Express + Postgres), frontend (Vite), website (Astro) and documentation (Astro). ",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^9.2.23"
+  }
 }

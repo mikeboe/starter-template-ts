@@ -5,6 +5,7 @@ FROM node:20-alpine AS builder
 WORKDIR /base
 COPY package.json .
 COPY package-lock.json .
+
 COPY ./website/package.json website/package.json
 RUN mkdir website/nginx
 COPY ./misc/nginx.conf website/nginx/
@@ -12,7 +13,7 @@ COPY ./misc/start.sh website/nginx/
 RUN apk add --no-cache git
 RUN npm ci
 COPY ./website website
-# RUN ls -a
+
 RUN npx pkg ./node_modules/@import-meta-env/cli/bin/import-meta-env.js \
     -t node18-alpine-x64 \
     -o website/import-meta-env-alpine

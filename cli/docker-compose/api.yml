@@ -1,0 +1,29 @@
+  postgres-db:
+    image: postgres:15.5
+    container_name: postgres-db
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: local
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+  api:
+    image: api
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres-db
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres-db:5432/local
+      NODE_ENV: development
+      PORT: 3000
