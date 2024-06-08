@@ -39,3 +39,7 @@ Docs based on Starlight + Astro.
 Frontend based on Astro with following additonal packages:
 - [import-meta-env](https://import-meta-env.org) for env vars during runtime 
 
+# License and Contribution
+
+Licensed under MIT, feel free to contribute if you want to add services or packages.
+
