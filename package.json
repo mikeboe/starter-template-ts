@@ -1,12 +1,14 @@
 {
   "name": "project-starter-ts",
-  "version": "1.0.18",
+  "version": "1.0.30",
   "type": "module",
   "workspaces": [
     "api",
     "frontend",
     "website",
-    "docs"
+    "docs",
+    "package",
+    "ui-library"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,12 +16,13 @@
   "bin": {
     "project-starter-ts": "cli/index.mjs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["typescript", "api", "frontend", "website", "documentation", "starter-template", "react", "vite", "astro", "express", "postgres", "package", "vite-ui-library"],
+  "author": "mikeboe",
   "license": "MIT",
   "description": "Starter template to scaffold a project with typescript, api (Express + Postgres), frontend (Vite), website (Astro) and documentation (Astro). ",
   "dependencies": {
     "commander": "^12.1.0",
     "inquirer": "^9.2.23"
-  }
+  },
+  "repository": "https://github.com/mikeboe/starter-template-ts"
 }

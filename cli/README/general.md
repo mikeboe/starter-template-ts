@@ -1,4 +1,4 @@
-# Project Starter with Typescript
+# Project Name Starter with Typescript
 
 ## Create Project
 
